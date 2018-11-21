@@ -43,7 +43,9 @@ defmodule Valchat.Mixfile do
       {:cowboy, "~> 1.0"},
       {:plug_cowboy, "~> 1.0"},
 
-      {:ex_doc, "~> 0.12"}
+      {:ex_doc, "~> 0.12"},
+      {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"}
 
     ]
   end

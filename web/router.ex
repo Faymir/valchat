@@ -7,6 +7,8 @@ defmodule Valchat.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+
+    #plug(Valchat.Plugs.SetUser)
   end
 
   pipeline :api do
@@ -17,6 +19,12 @@ defmodule Valchat.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    get "/signin", AuthController, :index
+    post "/signin", AuthController, :signin
+    get "/signout", AuthController, :signout
+
+
   end
 
   # Other scopes may use custom stacks.
