@@ -49,12 +49,6 @@ defmodule Valchat.AuthController do
       |> render("index.html", changeset: changeset)
     end
 
-    case user do
-      %Valchat.User{} -> Comeonin.Argon2.checkpw(user_pass)
-      nil ->
-    end
-
-    redirect(conn, to: auth_path(conn, :index) )
 
   end
 
