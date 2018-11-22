@@ -8,10 +8,21 @@
     <meta name="author" content="V@ldoR__Che">
 
     <title>Hello Valchat!</title>
+    <%= if !@conn.assigns.user do %>
+      <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <% end %>
 
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <%= if @conn.assigns.user do %>
+      <link rel="stylesheet" href="<%= static_path(@conn, "/css/components.css") %>">
+    <% end %>
 
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/components.css") %>">
+
+    <%= if @conn.assigns.user do %>
+      <script>
+         window.userToken = "<%= Phoenix.Token.sign(Valchat.Endpoint, "key", @conn.assigns.user.id) %>"
+      </script>
+    <% end %>
+
   </head>
 
   <body>

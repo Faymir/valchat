@@ -1,33 +1,38 @@
 <template>
   <div class="my-app">
-    <h1>Vuechat</h1>
-    <ul v-for="message in messages">
+    <ul>
       <li>
-        <small>{{message.received_at}}</small>: {{message.body}}
+        <router-link :to="{ name: 'home'}">Home</router-link>
+        <router-link :to="{ name: 'foo'}">Foo</router-link>
       </li>
     </ul>
-    <input type="text" v-model="message" v-on:keyup.13="sendMessage">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+
   export default {
+    name:"MyApp",
     data() {
       return {
         message: ""
       }
     },
-    computed: {
-      messages() {
-        return this.$parent.messages
-      }
-    },
-    methods: {
-      sendMessage() {
-        this.$parent.channel.push("new_msg", { body: this.message })
-        this.message = ''
-      }
-    }
+    // components: {
+    //   Asida
+    // },
+    // computed: {
+    //   messages() {
+    //     return this.$parent.messages
+    //   }
+    // },
+    // methods: {
+    //   sendMessage() {
+    //     this.$parent.channel.push("new_msg", { body: this.message })
+    //     this.message = ''
+    //   }
+    // }
   }
 </script>
 <style lang="sass">
