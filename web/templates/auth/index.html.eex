@@ -1,3 +1,37 @@
 <div id="app">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  <!-- <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p> -->
+
+  <div class="row">
+    <div class="center-block" style="width:500px;">
+      <%= form_for @changeset, auth_path(@conn, :signin), fn f -> %>
+        <h1> Signin</h1>
+        <div class="form-group">
+          <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+          <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+        </div>
+
+        <div class="form-group">
+          <%= text_input f, :email, placeholder: "Email",
+                                    class: "form-control" %>
+          <%= error_tag f, :email %>
+        </div>
+        <div class="form-group">
+          <%= password_input f, :password, placeholder: "Password",
+                                           class: "form-control" %>
+          <%= error_tag f, :password %>
+        </div>
+
+        <div class="form-group">
+            <%= submit "Signin", class: "btn btn-primary" %>
+        </div>
+
+
+      <% end %>
+
+
+
+    </div>
+  </div>
+
 </div>
