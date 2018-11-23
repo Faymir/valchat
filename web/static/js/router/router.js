@@ -2,6 +2,8 @@ import Vue from 'vue/dist/vue.js'
 import VueRouter from 'vue-router'
 
 import Asida from "../../components/asida.vue"
+import Home from "../../components/home.vue"
+import Conversation from "../../components/conversation.vue"
 Vue.use(VueRouter)
 // 1. Define route components.
 // These can be imported from other files
@@ -15,9 +17,22 @@ const Bar = { template: '<div>bar 11111555 </div>' }
 // We'll talk about nested routes later.
 
 const routes = [
-  { path: '/', name: 'home', component: Asida },
-  { path: '/foo', name: 'foo', component: Asida },
-  { path: '/bar', component: Bar }
+  {
+     path: '/',
+     name: 'home',
+     component: Home,
+     children: [
+       { path: 'conversation:id', name: 'conversation', component: Conversation },
+       { path: '*', redirect: { name: 'default' } }
+     ]
+   },
+  {
+    path: '/foo',
+    name: 'foo',
+    component: Asida
+  },
+
+  { path: '*', name: 'default', redirect: { name: 'home' } }
 ]
 
 // 3. Create the router instance and pass the `routes` option

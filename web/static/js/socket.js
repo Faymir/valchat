@@ -8,9 +8,22 @@ import {Socket} from "phoenix"
 import Vue from 'vue/dist/vue.js'
 import MyApp from "../components/my-app.vue"
 
+// ElementUI for design
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
+
+
+Vue.use(ElementUI, { locale });
+
+import { Button } from 'element-ui';
+
+Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
+Vue.use(Button);
+
 
 // import Asida from "./../components/asida.vue"
 import router from "./router/router.js"
+import store from "./store/store.js"
 
 
 
@@ -28,6 +41,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<MyApp/>',
   components: { MyApp }
   // render(createElement) {

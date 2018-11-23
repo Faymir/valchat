@@ -1,11 +1,5 @@
 <template>
   <div class="my-app">
-    <ul>
-      <li>
-        <router-link :to="{ name: 'home'}">Home</router-link>
-        <router-link :to="{ name: 'foo'}">Foo</router-link>
-      </li>
-    </ul>
     <router-view></router-view>
   </div>
 </template>
@@ -36,10 +30,9 @@
   }
 </script>
 <style lang="sass">
-  .my-app {
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
+  body {
+    margin: 0;
+    box-sizing: border-box
     h1 {
       text-align: center;
     }
