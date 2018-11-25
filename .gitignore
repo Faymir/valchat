@@ -22,3 +22,9 @@ erl_crash.dump
 # secrets file as long as you replace its contents by environment
 # variables.
 /config/prod.secret.exs
+
+
+# il faut retirer le dossier elixir_ls de ton gitignore car il est généré et utilisé par visual code 
+principalement
+
+/.elixir_ls
